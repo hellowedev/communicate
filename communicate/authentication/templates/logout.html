@@ -1,0 +1,22 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<main class="h-screen w-screen flex flex-col overflow-x-hidden overflow-y-auto">
+    <h1
+    class="p-4 flex justify-end w-full text-xl/6 font-semibold text-green-950"
+  >
+    Logout confirmation 
+  </h1>
+    <section class="flex flex-col justify-start items-start">
+
+        <section class="flex flex-col gap-2 self-center w-96 glass p-4">
+            <span class="text-xl/6 text-green-950 pb-2">Successfully log out of <span class=" text-green-400">Communicate</span></span>
+            <fieldset class="flex flex-1 gap-2 text-sm/6">
+                <a href="{% url 'authentication:login' %}" class="btn btn-outline border-green-400 hover:bg-green-400 text-sm/6 ">Login again</a>
+            </fieldset>
+        </section>
+
+    </section>
+</main>
+{% endblock %}

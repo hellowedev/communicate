@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} Communicate {% endblock %}</title>
+    <link href="{% static 'src/tailwind_styles.css' %}" rel="stylesheet" />
+  </head>
+  <!-- Red , Blue , Yellow , Orange , Cyan , Green -->
+  <body class="bg-green-100 flex flex-col h-screen w-screen overflow-hidden  overflow-y-auto">
+    <div class="navbar bg-green-50 text-green-950">
+      <div class="flex-none">
+        <button class="btn btn-square rounded-none border-none text-green-950 hover:text-green-100 bg-transparent">
+          <svg
+          
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="inline-block h-5 w-5 stroke-current"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <div class="flex-1">
+        <a class="btn btn-ghost text-xl">Communicate</a>
+      </div>
+      <ul class="text-sm/6 menu menu-horizontal bg-transparent rounded-box">
+        <li><a href="{% url 'authentication:login' %}" class="active:bg-green-300">Sign up</a></li>
+        <li><a href="{% url 'authentication:login' %}"  class="active:bg-green-300">Login</a></li>
+        <li><a href="{% url 'share:index' %}" class="text-green-400 active:bg-green-300">Home</a></li>
+        <li>
+          <form method="post" action="{% url 'authentication:logout' %}">
+
+            {% csrf_token %}
+            <button type="submit" class="active:bg-green-300">Logout</button>
+          </form>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="bg-green-100 flex flex-col w-screen overflow-hidden overflow-y-auto"
+    >
+      {% block content %} {% endblock %}
+    </div>
+  </body>
+</html>

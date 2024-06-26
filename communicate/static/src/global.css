@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-input {
+    height: 100%;
+    background: transparent;
+}
+.file-input {
+}
