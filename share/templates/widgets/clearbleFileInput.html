@@ -1,0 +1,24 @@
+{% if widget.is_initial %}
+
+<div class="file-input-previous flex flex-col justify-start">
+    <span>{{ widget.initial_text }}</span>
+    <a class="link" href="{{ widget.value.url }}">{{ widget.value }}</a>
+</div>
+    {% if not widget.required %}
+
+<div class="file-input-previous-clear flex flex-col justify-start ">
+    <span>Clear uploaded file</span>
+    <div class="file-input-previous flex rounded-lg gap-2 justify-start">
+        <label for="{{ widget.checkbox_id }}">{{ widget.clear_checkbox_label }}</label>
+        <input type="checkbox" class="radio radio-info" name="{{ widget.checkbox_name }}" id="{{ widget.checkbox_id }}"{% if widget.attrs.disabled %} disabled{% endif %}{% if widget.attrs.checked %} checked{% endif %}>    
+    </div>
+</div>
+    
+    {% endif %}
+
+{% endif %}
+<div class="file-input-new-upload flex gap-2 flex-col justify-start">
+    <span>{{ widget.input_text }} </span>
+    <input class="file-input w-full file-input-bordered file-input-ghost border-green-300 border text-sm/6"  type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+
+</div>
